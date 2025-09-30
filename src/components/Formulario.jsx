@@ -9,8 +9,13 @@ import "./Formulario.css"
 
 
 export function FormularioDeEvento() {
+
+    function handleSubmit(e) {
+        e.preventDefault;
+        
+    }
     return (
-        <form className="form-evento">
+        <form className="form-evento" action={handleSubmit}>
             <TituloFormulario>
                 Preencha para criar um evento:
             </TituloFormulario>

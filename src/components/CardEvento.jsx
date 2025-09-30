@@ -6,9 +6,9 @@ export function CardEvento({ evento }) {
             <img src={evento.capa} alt={evento.titulo} />
             <div className="corpo">
                 <p className="tag">
-                    {evento.tema.nome}
+                    {evento.tema.name}
                 </p>
-                <p>
+                <p className="date">
                     {evento.data.toLocaleDateString('pt-BR')}
                 </p>
                 <h4 className="titulo">{evento.titulo}</h4>
