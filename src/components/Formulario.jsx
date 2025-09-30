@@ -1,14 +1,25 @@
+import { CampoDeFormulario } from "./CampoDeFormulario";
+import { Input } from "./Input";
+import { Label } from "./Label";
+import { TituloFormulario } from "./TituloFormulario";
 
 export function FormularioDeEvento() {
     return (
         <form className="form-evento">
-            <h2>Preencha para criar um evento:</h2>
-            <fieldset>
-                <label htmlFor="nome">
+            <TituloFormulario>
+                Preencha para criar um evento:
+            </TituloFormulario>
+            <CampoDeFormulario>
+                <Label htmlFor="nome">
                     Qual o nome do evento
-                </label>
-                <input type="text" name="nome" id="nome" />
-            </fieldset>
+                </Label>
+                <Input 
+                    type="text" 
+                    name="nome" 
+                    id="nome" 
+                    placeholder="Summer dev hits" 
+                />
+            </CampoDeFormulario>
         </form>
     )
 }
