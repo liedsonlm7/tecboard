@@ -8,12 +8,22 @@ import { ListaSuspensa } from "./ListaSuspensa";
 import "./Formulario.css"
 
 
-export function FormularioDeEvento() {
+export function FormularioDeEvento({ temas, handleSubmit }) {
 
-    function handleSubmit(e) {
-        e.preventDefault;
-        
+    function handleSubmit(formData) {
+        console.log("criar um novo evento", formData)
+        const evento = {
+            capa: formData.get('capa'),
+            tema: temas.find(function (item) {
+                return item.id == formData.get('tema')
+            }),
+            data: new Date(formData.get('date')),
+            titulo: formData.get('nome')
+        }
+
+        handleSubmit(evento)
     }
+
     return (
         <form className="form-evento" action={handleSubmit}>
             <TituloFormulario>
@@ -32,8 +42,19 @@ export function FormularioDeEvento() {
                     />
                 </CampoDeFormulario>
                 <CampoDeFormulario>
+                    <Label htmlFor="capa">
+                        Qual o endererço da imagem de capa?
+                    </Label>
+                    <Input
+                        type="text"
+                        name="capa"
+                        id="capa"
+                        placeholder="http://..."
+                    />
+                </CampoDeFormulario>
+                <CampoDeFormulario>
                     <Label htmlFor="date">
-                        Qual a data do evento
+                        Data do evento
                     </Label>
                     <Input
                         type="date"
@@ -44,9 +65,9 @@ export function FormularioDeEvento() {
                 </CampoDeFormulario>
                 <CampoDeFormulario>
                     <Label htmlFor="tema">
-                       Qual o tema do evento?
+                       Tema do evento
                     </Label>
-                    <ListaSuspensa />
+                    <ListaSuspensa id="tema" name="tema" itens={temas}/>
                 </CampoDeFormulario>
             </div>
             <div className="actions">

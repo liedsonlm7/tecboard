@@ -43,17 +43,25 @@ function App() {
     }
   ]
 
+  function adicionarEvento(evento) {
+    eventos.push(evento)
+    console.log(eventos)
+  }
+
   return (
     <main>
       <header>
         <img src="/logo.png" alt="" />
       </header>
       <Banner />
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas} handleSubmit={adicionarEvento}/>
       {temas.map((tema) => (
         <section key={tema.id}>
           <Tema tema={tema} />
-          <CardEvento evento={eventos[0]}/>
+          {eventos.map(function (item, index) {
+            return <CardEvento evento={item} key={index}/>
+          })}
+          
         </section>
       ))}
       
