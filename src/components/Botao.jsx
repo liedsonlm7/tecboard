@@ -1,7 +1,9 @@
-export function Botao() {
+import "./Botao.css";
+
+export function Botao({ children }) {
     return (
-        <button>
-            Criar evento
+        <button className="botao">
+            {children}
         </button>
     )
 }
