@@ -8,7 +8,7 @@ import { ListaSuspensa } from "./ListaSuspensa";
 import "./Formulario.css"
 
 
-export function FormularioDeEvento({ temas, handleSubmit }) {
+export function FormularioDeEvento({ temas, aoSubmeter }) {
 
     function handleSubmit(formData) {
         console.log("criar um novo evento", formData)
@@ -21,7 +21,7 @@ export function FormularioDeEvento({ temas, handleSubmit }) {
             titulo: formData.get('nome')
         }
 
-        handleSubmit(evento)
+        aoSubmeter(evento)
     }
 
     return (
