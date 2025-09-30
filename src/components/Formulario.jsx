@@ -38,8 +38,8 @@ export function FormularioDeEvento() {
                     />
                 </CampoDeFormulario>
                 <CampoDeFormulario>
-                    <Label htmlFor="date">
-                        Qual a data do evento
+                    <Label htmlFor="tema">
+                       Qual o tema do evento?
                     </Label>
                     <ListaSuspensa />
                 </CampoDeFormulario>

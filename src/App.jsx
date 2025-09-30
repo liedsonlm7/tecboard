@@ -1,4 +1,5 @@
 import './App.css'
+import { Banner } from './components/Banner'
 import { FormularioDeEvento } from './components/Formulario'
 import { Tema } from './components/Tema'
 
@@ -32,18 +33,21 @@ function App() {
 
   ]
 
+  
+
   return (
     <main>
       <header>
         <img src="/logo.png" alt="" />
       </header>
-      <section>
-        <img src="/banner.png" alt="" />
-      </section>
+      <Banner />
       <FormularioDeEvento />
-      <section>
-        <Tema tema={temas[0]} />
-      </section>
+      {temas.map((tema) => (
+        <section key={tema.id}>
+          <Tema tema={tema} />
+        </section>
+      ))}
+      
     </main>
   )
 }
